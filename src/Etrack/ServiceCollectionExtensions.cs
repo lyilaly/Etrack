@@ -1,5 +1,6 @@
 ﻿using Etrack.Core.Model;
 using Etrack.Data;
+using Etrack.Infrastructure.Filters;
 using Etrack.Infrastructure.Services;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -17,7 +18,7 @@ namespace Etrack
             services.AddMvc(options =>
             {
                 options.Conventions.Add(new FeatureConvention());
-                //options.Filters.Add(typeof(ValidatorActionFilter));
+                options.Filters.Add(typeof(ValidatorActionFilter));
             })
             .AddRazorOptions(options =>
             {
