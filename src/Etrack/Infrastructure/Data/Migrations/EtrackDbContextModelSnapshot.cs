@@ -122,7 +122,7 @@ namespace Etrack.Infrastructure.Data.Migrations
                     b.ToTable("UserTokens");
                 });
 
-            modelBuilder.Entity("Etrack.Models.ApplicationUser", b =>
+            modelBuilder.Entity("Etrack.Core.Model.User", b =>
                 {
                     b.Property<string>("Id");
 
@@ -181,7 +181,7 @@ namespace Etrack.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Etrack.Models.ApplicationUser")
+                    b.HasOne("Etrack.Core.Model.User")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -189,7 +189,7 @@ namespace Etrack.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Etrack.Models.ApplicationUser")
+                    b.HasOne("Etrack.Core.Model.User")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -202,7 +202,7 @@ namespace Etrack.Infrastructure.Data.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("Etrack.Models.ApplicationUser")
+                    b.HasOne("Etrack.Core.Model.User")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

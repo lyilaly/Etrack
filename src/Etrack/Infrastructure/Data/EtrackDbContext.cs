@@ -6,6 +6,8 @@ namespace Etrack.Data
 {
     public class EtrackDbContext : IdentityDbContext<User>
     {
+        public DbSet<Location> Locations { get; set; }
+
         public EtrackDbContext(DbContextOptions<EtrackDbContext> options)
             : base(options)
         {

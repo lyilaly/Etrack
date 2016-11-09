@@ -5,6 +5,11 @@ namespace Etrack.Core.Model
 {
     public class Location
     {
+        [Key]
+        [StringLength(3, ErrorMessage = "Location id must have 3 characters in lenght or less.")]
+        [Display(Name = "Location Id")]
+        public string Id { get; set; }
+
         [Required(ErrorMessage = "")]
         [StringLength(25, ErrorMessage = "Location name must have 25 characters in lenght or less.")]
         [Display(Name = "Location Name")]
