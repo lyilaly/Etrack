@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] | Etrack</title>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" />
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />*@
+        @*<link rel="stylesheet" href="~/css/site.css" />*@
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/application.css" />
+    </environment>
+    <environment names="Staging,Production">
+        @*<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/css/bootstrap.min.css"
+            asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+            asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />*@
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" />
+        <link rel="stylesheet" href="~/css/application.min.css" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body class="ts">
+    <!-- FIXED TOP NAV -->
+    <div class="ci ou g">
+        <div class="ft ui">
+            <div class="oj">
+                <button type="button" class="om collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="ct">Toggle navigation</span>
+                    <span class="on"></span>
+                    <span class="on"></span>
+                    <span class="on"></span>
+                </button>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="ol tu">
+                    <span class="bv aek tt"></span>
+                    Etrack
+                </a>
+            </div>
+            <div class="ok collapse">
+                <ul class="nav navbar-nav">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                </ul>
+                <!-- OPTIONS LIST -->
+                <ul class="fa oo ny">
+                    <!-- USER OPTIONS -->
+                    <li class="dropdown pull-left">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+                            <img class="user-avatar" alt="" src="~/images/noavatar.jpg" height="34" />
+                            <span class="user-name">
+                                <span class="hidden-xs">
+                                    @User.Identity.Name <i class="fa fa-angle-down"></i>
+                                </span>
+                            </span>
+                        </a>
+
+                        <ul class="dropdown-menu hold-on-click">
+                            <li>
+                                <!-- my calendar -->
+                                <a href="calendar.html"><i class="fa fa-calendar"></i> Calendar</a>
+                            </li>
+                            <li>
+                                <!-- my inbox -->
+                                <a href="#">
+                                    <i class="fa fa-envelope"></i> Inbox
+                                    <span class="pull-right label label-default">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <!-- settings -->
+                                <a href="page-user-profile.html"><i class="fa fa-cogs"></i> Settings</a>
+                            </li>
+
+                            <li class="divider"></li>
+
+                            <li>
+                                <!-- lockscreen -->
+                                <a href="page-lock.html"><i class="fa fa-lock"></i> Lock Screen</a>
+                            </li>
+                            <li>
+                                <!-- logout -->
+                                <a href="@Url.Action("LogOff", "Account")"><i class="fa fa-power-off"></i> Log Out</a>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <!-- /USER OPTIONS -->
+                </ul>
+                <!-- /OPTIONS LIST -->
+                <!-- SEARCH FORM -->
+                <form class="fa oo ny">
+                    <div class="aol">
+                        <input class="form-control" type="text" placeholder="Search...">
+                        <span class="bv adn"></span>
+                    </div>
+                </form>
+                @*@await Html.PartialAsync("_LoginPartial")*@
+            </div>
+        </div>
+    </div>
+    <!-- CENTRAL SECTION -->
+    <div class="ft ui">
+        <div class="fu">
+            <!-- SIDE NAV -->
+            <div class="fz aom akl">
+                @await Html.PartialAsync("_SideNav")
+            </div>
+            <!-- MAIN CONTENT -->
+            <div class="hf dy">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS SECTION -->
+    <environment names="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/js/toolkit.js" asp-append-version="true"></script>
+        <script src="~/js/application.js" asp-append-version="true"></script>
+        @*<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+            <script src="~/js/site.js" asp-append-version="true"></script>*@
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery">
+        </script>
+        @*<script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.6/bootstrap.min.js"
+                    asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                    asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal">
+            </script>*@
+        @*<script src="~/js/site.min.js" asp-append-version="true"></script>*@
+        <script src="~/js/toolkit.min.js" asp-append-version="true"></script>
+        <script src="~/js/application.min.js" asp-append-version="true"></script>
+    </environment>
+    <!-- PAGE LEVEL SCRIPTS -->
+    @RenderSection("scripts", required: false)
+</body>
+</html>

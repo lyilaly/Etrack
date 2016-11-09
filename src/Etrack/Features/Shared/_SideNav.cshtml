@@ -1,0 +1,115 @@
+﻿<nav class="aot">
+    <div class="aon">
+        <button class="amy amz aoo" type="button" data-toggle="collapse" data-target="#nav-toggleable-sm">
+            <span class="ct">Toggle nav</span>
+        </button>
+        @*<a class="aop cn" href="index.html">
+                <span class="bv act aoq"></span>
+            </a>*@
+    </div>
+
+    <div class="collapse and" id="nav-toggleable-sm">
+        <form class="aor">
+            <input class="form-control" type="text" placeholder="Search...">
+            <button type="submit" class="fm">
+                <span class="bv adn"></span>
+            </button>
+        </form>
+        <ul class="nav of nav-stacked">
+            @*<li>
+                    <a href="~/">Home</a>
+                    @Html.MenuListActionLink("Home", "Index", "Home")
+                </li>*@
+            <nav-link asp-controller="Home" asp-action="Index">Home</nav-link>
+            <li class="tq">Procurement</li>
+            <li>
+                <a href="order-history/index.html">Order history</a>
+            </li>
+            <li>
+                <a href="fluid/index.html">Fluid layout</a>
+            </li>
+            <li>
+                <a href="icon-nav/index.html">Icon nav</a>
+            </li>
+
+            <li class="tq">Materials</li>
+            <li>
+                <a href="docs/index.html">
+                    Toolkit docs
+                </a>
+            </li>
+            <li>
+                <a href="http://getbootstrap.com" target="blank">
+                    Bootstrap docs
+                </a>
+            </li>
+            <li>
+                <a href="light/index.html">Light UI</a>
+            </li>
+            <li>
+                <a href="#docsModal" data-toggle="modal">
+                    Example modal
+                </a>
+            </li>
+            <li class="tq">Logistics</li>
+            <li>
+                <a href="docs/index.html">
+                    Toolkit docs
+                </a>
+            </li>
+            <li class="tq">Administration</li>
+            @*<li>
+                    <a href="@Url.Action("Index", "UsersAdmin", null)">
+                        <i class="main-icon fa fa-users"></i> <span>Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "RolesAdmin", null)">
+                        <i class="main-icon fa fa-hand-stop-o"></i> <span>Roles</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index", "GroupsAdmin", null)">
+                        <i class="main-icon fa fa-times-circle-o"></i> <span>Permissions</span>
+                    </a>
+                </li>*@
+            <nav-link asp-controller="Users" asp-action="Index">Users</nav-link>
+            <nav-link asp-controller="Roles" asp-action="Index">Roles</nav-link>
+            <nav-link asp-controller="Permssions" asp-action="Index">Permissions</nav-link>
+            <nav-link asp-controller="Locations" asp-action="Index">Locations</nav-link>
+            <li>
+                <a href="~/Elmah">
+                    <i class="main-icon fa fa-exclamation-circle"></i> <span>Errors</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("Unauthorized", "Home", null)">
+                    <i class="main-icon fa fa-industry"></i> <span>Throw Unauthorized Error</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("NotFound", "Home", null)">
+                    <i class="main-icon fa fa-industry"></i> <span>Throw NotFound Error</span>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("InternalError", "Home", null)">
+                    <i class="main-icon fa fa-industry"></i> <span>Throw Internal Error</span>
+                </a>
+            </li>
+            <li>
+                <a href="calendar.html">
+                    <i class="main-icon fa fa-calendar"></i>
+                    <span class="label label-warning pull-right">2</span> <span>Calendar</span>
+                </a>
+            </li>
+            <li>
+                <a href="../../HTML/start.html">
+                    <i class="main-icon fa fa-link"></i>
+                    <span class="label label-danger pull-right">PRO</span> <span>Frontend</span>
+                </a>
+            </li>
+        </ul>
+        <hr class="rw aky">
+    </div>
+</nav>
