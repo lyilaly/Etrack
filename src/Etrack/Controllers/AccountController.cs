@@ -1,4 +1,5 @@
 ﻿using Etrack.Core.Model;
+using Etrack.Features.Home;
 using Etrack.Infrastructure.Services;
 using Etrack.ViewModels.AccountViewModels;
 using Microsoft.AspNetCore.Authorization;
