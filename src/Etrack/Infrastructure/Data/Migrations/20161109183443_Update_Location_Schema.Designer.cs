@@ -8,9 +8,10 @@ using Etrack.Data;
 namespace Etrack.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(EtrackDbContext))]
-    partial class EtrackDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161109183443_Update_Location_Schema")]
+    partial class Update_Location_Schema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")

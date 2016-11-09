@@ -1,4 +1,5 @@
 ﻿using Etrack.Core.Model;
+using Etrack.Infrastructure.Data.EntitiesConfiguration;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,6 +7,8 @@ namespace Etrack.Data
 {
     public class EtrackDbContext : IdentityDbContext<User>
     {
+        public DbSet<Location> Locations { get; set; }
+
         public EtrackDbContext(DbContextOptions<EtrackDbContext> options)
             : base(options)
         {
@@ -18,19 +21,19 @@ namespace Etrack.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
 
-            builder.Entity<UserLocation>()
-                .HasKey(ul => new { ul.UserId, ul.LocationId });
+            builder.Entity<User>().ToTable("Users");
+            builder.Entity<IdentityRole>().ToTable("Roles");
+            builder.Entity<IdentityUserRole<string>>().ToTable("UserRoles");
+            builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins");
+            builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
+            builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
+            builder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims");
 
 
-            builder.Entity<UserLocation>()
-                .HasOne(ul => ul.User)
-                .WithMany(u => u.AssignedLocations)
-                .HasForeignKey(ul => ul.UserId);
+            builder.AddConfiguration(new LocationEntityConfiguration());
 
-            builder.Entity<UserLocation>()
-                .HasOne(ul => ul.Location)
-                .WithMany(l => l.AssignedUsers)
-                .HasForeignKey(ul => ul.LocationId);
+            builder.AddConfiguration(new UserLocationEntityTypeConfiguration());
+
         }
     }
 }
