@@ -8,9 +8,10 @@ using Etrack.Data;
 namespace Etrack.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(EtrackDbContext))]
-    partial class EtrackDbContextModelSnapshot : ModelSnapshot
+    [Migration("20161111194927_Add_User_LastLoginDate_TotalLoginCount_Properties")]
+    partial class Add_User_LastLoginDate_TotalLoginCount_Properties
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
