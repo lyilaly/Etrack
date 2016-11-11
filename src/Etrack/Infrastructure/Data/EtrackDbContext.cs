@@ -35,5 +35,7 @@ namespace Etrack.Data
             builder.AddConfiguration(new UserLocationEntityTypeConfiguration());
 
         }
+
+        public DbSet<User> User { get; set; }
     }
 }
